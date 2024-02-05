@@ -12,14 +12,17 @@ struct ContentView: View {
     @State var model:MessageModel
     
     var body: some View {
-        VStack {
-            Text("ID").font(.largeTitle).frame(width:300,height:45,alignment:.leading)
-             Text(String(model.id)).frame(width:300,height:45,alignment:.leading)
-             Text("From").font(.largeTitle).frame(width:300,height:45,alignment:.leading)
-             Text(model.from).frame(width:300,height:45,alignment:.leading)
-             Text("Message").font(.largeTitle).frame(width:300,height:45,alignment:.leading)
-             Text(model.message)
-                .frame(width:300,height:80,alignment:.leading)
+        NavigationStack{
+            VStack{
+                Text("ID").font(.largeTitle).frame(width:300,height:45,alignment:.leading)
+                Text(String(model.id)).frame(width:300,height:45,alignment:.leading)
+                Text("From").font(.largeTitle).frame(width:300,height:45,alignment:.leading)
+                Text(model.from).frame(width:300,height:45,alignment:.leading)
+                Text("Message").font(.largeTitle).frame(width:300,height:45,alignment:.leading)
+                Text(model.message)
+                    .frame(width:300,height:80,alignment:.leading)
+            }.navigationTitle("SwiftUIAPIRest")
+            .navigationBarTitleDisplayMode(.inline)
         }
         .padding()
         .onAppear(perform: {
